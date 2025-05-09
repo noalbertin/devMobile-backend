@@ -7,14 +7,13 @@ const port = process.env.PORT || 3000;
 
 // Configuration CORS plus sécurisée
 const corsOptions = {
-  origin: process.env.NODE_ENV === 'production' 
-    ? ['https://votre-app-expo.com', 'exp://your-expo-url'] 
-    : '*',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
-  credentials: true,
-  optionsSuccessStatus: 200
-};
+    origin: '*', // autorise toutes les origines pour le dev
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+    optionsSuccessStatus: 200
+  };
+  
 
 app.use(cors(corsOptions));
 app.use(express.json());
